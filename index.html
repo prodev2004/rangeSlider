@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Range Slider</title>
+</head>
+<body>
+    <div class="container">
+        <div class="range-slider-container">
+            <input type="range">
+            <div class="percentage">
+                <span>50%</span>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const rangeEl = document.querySelector('input')
+        const percentage = document.querySelector('.percentage')
+        const percentageSpan = document.querySelector('.percentage span')
+
+
+        range()
+
+        rangeEl.addEventListener('input', range)
+
+        function range () {
+            percentage.style.left = `${rangeEl.value}%`;
+            percentageSpan.innerText = `${rangeEl.value}%`;
+            percentage.style.filter = `hue-rotate(${rangeEl.value}deg)`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #161616;
+}
+:root {
+    --red-clr: #ff7575;
+}
+
+.range-slider-container {
+    width: 350px;
+    position: relative;
+}
+input {
+    width: 105%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.percentage {
+    background-color: var(--red-clr);
+    display: inline-block;
+    transform: translate(-50%, 230%) scale(0);
+    width: 60px;
+    height: 30px;
+    border-bottom-left-radius: 100vw;
+    border-bottom-right-radius: 100vw;
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 200ms ease-in-out transform;
+}
+.percentage::before {
+    content: '';
+    position: absolute;
+    border-bottom: 30px solid var(--red-clr);
+    border-right: 30px solid transparent;
+    border-left: 30px solid transparent;
+    transform: translateY(-100%);
+}
+.percentage span {
+    transform: translateY(-40%);
+    color: #fff;
+    text-shadow: 0 0 .2rem rgba(0, 0, 0, .6);
+}
+
+.range-slider-container:hover .percentage {
+    transform: translate(-50%, 230%) scale(1);
+}
